@@ -18,10 +18,17 @@ public class Main {
 
         ClassResources classResources = new ClassResources();
         System.out.println(classResources.getClassResources("barbarian"));
-        HttpResponse<String> response1 = classInformation.getClassInformation("barbarian");
+        HttpResponse<String> response1 = classResources.getClassResources("barbarian");
         System.out.println(response1.statusCode());
         System.out.println(response1.body());
         System.out.println(response1.headers());
+
+        ClassFeatures classFeatures = new ClassFeatures();
+        System.out.println(classFeatures.getClassFeatures("barbarian"));
+        HttpResponse<String> response2 = classFeatures.getClassFeatures("barbarian");
+        System.out.println(response2.statusCode());
+        System.out.println(response2.body());
+        System.out.println(response2.headers());
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please, give the name of your character");
@@ -56,6 +63,7 @@ public class Main {
         } catch (IOException ioException) {
             ioException.printStackTrace();
         }
+        //TODO Everything has been tested properly.
     }
 }
 
