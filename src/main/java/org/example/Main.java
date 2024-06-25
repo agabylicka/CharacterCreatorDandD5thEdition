@@ -30,6 +30,27 @@ public class Main {
         System.out.println(response2.body());
         System.out.println(response2.headers());
 
+        ClassSpells classSpells = new ClassSpells();
+        System.out.println(classSpells.getClassSpells("wizard"));
+        HttpResponse<String> response3 = classSpells.getClassSpells("wizard");
+        System.out.println(response3.statusCode());
+        System.out.println(response3.body());
+        System.out.println(response3.headers());
+
+        Proficiencies proficiencies = new Proficiencies();
+        System.out.println(proficiencies.getProficiencies("elf"));
+        HttpResponse<String> response4 = proficiencies.getProficiencies("elf");
+        System.out.println(response4.statusCode());
+        System.out.println(response4.body());
+        System.out.println(response4.headers());
+
+        RaceInformation raceInformation = new RaceInformation();
+        System.out.println(raceInformation.getRaceInformation("elf"));
+        HttpResponse<String> response5 = raceInformation.getRaceInformation("elf");
+        System.out.println(response5.statusCode());
+        System.out.println(response5.body());
+        System.out.println(response5.headers());
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please, give the name of your character");
         String answer = scanner.nextLine();
