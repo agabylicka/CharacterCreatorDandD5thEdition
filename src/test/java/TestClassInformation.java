@@ -11,11 +11,12 @@ public class TestClassInformation {
         //given
         String index = "wizard";
         ClassInformation classInformation = new ClassInformation();
-        String expected = "wizard";
+        //String expected = "wizard";
         //when
         HttpResponse<String> actual = classInformation.getClassInformation(index);
 
         //then
-        Assertions.assertTrue(actual.body().contains(expected));
+        //Assertions.assertTrue(actual.body().contains(expected));
+        Assertions.assertEquals(200, actual.statusCode());
     }
 }

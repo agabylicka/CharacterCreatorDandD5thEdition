@@ -26,11 +26,7 @@ public class ClassInformation {
             request = HttpRequest.newBuilder(new URI(userURL + "/" + index)).GET().build();
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
             return response;
-        } catch (URISyntaxException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (InterruptedException e) {
+        } catch (URISyntaxException | InterruptedException | IOException e) {
             throw new RuntimeException(e);
         }
 

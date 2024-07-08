@@ -8,7 +8,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class ClassSpells {
-    public final String userURL = "https://www.dnd5eapi.co/api/classes/:index/levels/1/spells";
+    private final String userURL = "https://www.dnd5eapi.co/api/classes/:index/levels/1/spells";
     private final HttpClient client = HttpClient.newHttpClient();
 
     public HttpResponse<String> getClassSpells(String index) {
@@ -17,11 +17,7 @@ public class ClassSpells {
             request = HttpRequest.newBuilder(new URI(userURL.replace(":index", index))).GET().build();
             HttpResponse<String>response = client.send(request,HttpResponse.BodyHandlers.ofString());
             return response;
-        } catch (URISyntaxException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (InterruptedException e) {
+        } catch (URISyntaxException | InterruptedException | IOException e) {
             throw new RuntimeException(e);
         }
     }
