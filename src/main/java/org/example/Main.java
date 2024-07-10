@@ -9,26 +9,6 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        ClassInformation classInformation = new ClassInformation();
-        System.out.println(classInformation.getClassInformation("barbarian"));
-        HttpResponse<String> response = classInformation.getClassInformation("barbarian");
-        System.out.println(response.statusCode());
-        System.out.println(response.body());
-        System.out.println(response.headers());
-
-        ClassResources classResources = new ClassResources();
-        System.out.println(classResources.getClassResources("barbarian"));
-        HttpResponse<String> response1 = classResources.getClassResources("barbarian");
-        System.out.println(response1.statusCode());
-        System.out.println(response1.body());
-        System.out.println(response1.headers());
-
-        ClassFeatures classFeatures = new ClassFeatures();
-        System.out.println(classFeatures.getClassFeatures("barbarian"));
-        HttpResponse<String> response2 = classFeatures.getClassFeatures("barbarian");
-        System.out.println(response2.statusCode());
-        System.out.println(response2.body());
-        System.out.println(response2.headers());
 
         ClassSpells classSpells = new ClassSpells();
         System.out.println(classSpells.getClassSpells("wizard"));
