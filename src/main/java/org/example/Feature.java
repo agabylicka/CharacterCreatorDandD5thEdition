@@ -6,19 +6,20 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 public class Feature {
-    String name;
+    private String name;
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
     public static Feature convertJSON(String postJSON) {
-        Feature feature = new Feature();
         try {
+            Feature feature = new Feature();
             JsonNode node = MAPPER.readTree(postJSON);
             feature.setName((node.get("name").asText()));
+            return feature;
         } catch (JsonProcessingException e) {
             //throw new RuntimeException(e);
             System.err.println(e.getMessage());
         }
-        return feature;
+        return null;
     }
 
     public void setName(String name) {
@@ -32,7 +33,7 @@ public class Feature {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 }
 
