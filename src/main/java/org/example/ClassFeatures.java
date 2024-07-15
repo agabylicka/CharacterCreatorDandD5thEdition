@@ -17,7 +17,7 @@ public class ClassFeatures {         ///api/classes/:index/levels/:class_level/f
             request = HttpRequest.newBuilder(new URI(userURL.replace(":index", index))).GET().build();
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
             return response;
-        } catch (URISyntaxException | InterruptedException | IOException e) {
+        } catch (URISyntaxException | InterruptedException | IOException | NullPointerException e) {
             throw new RuntimeException(e);
         }
 
