@@ -9,29 +9,63 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        String HappyPathJSON = "{\n" +
+                "        \"index\": \"gnome\",\n" +
+                "            \"name\": \"Gnome\",\n" +
+                "            \"speed\": 25,\n" +
+                "            \"ability_bonuses\": [\n" +
+                "        {\n" +
+                "            \"ability_score\": {\n" +
+                "            \"index\": \"int\",\n" +
+                "                    \"name\": \"INT\",\n" +
+                "                    \"url\": \"/api/ability-scores/int\"\n" +
+                "        },\n" +
+                "            \"bonus\": 2\n" +
+                "        }\n" +
+                "  ],\n" +
+                "        \"alignment\": \"Gnomes are most often good. Those who tend toward law are sages, engineers, researchers, scholars, investigators, or inventors. Those who tend toward chaos are minstrels, tricksters, wanderers, or fanciful jewelers. Gnomes are good-hearted, and even the tricksters among them are more playful than vicious.\",\n" +
+                "            \"age\": \"Gnomes mature at the same rate humans do, and most are expected to settle down into an adult life by around age 40. They can live 350 to almost 500 years.\",\n" +
+                "            \"size\": \"Small\",\n" +
+                "            \"size_description\": \"Gnomes are between 3 and 4 feet tall and average about 40 pounds. Your size is Small.\",\n" +
+                "            \"starting_proficiencies\": [],\n" +
+                "        \"languages\": [\n" +
+                "        {\n" +
+                "            \"index\": \"common\",\n" +
+                "                \"name\": \"Common\",\n" +
+                "                \"url\": \"/api/languages/common\"\n" +
+                "        },\n" +
+                "        {\n" +
+                "            \"index\": \"gnomish\",\n" +
+                "                \"name\": \"Gnomish\",\n" +
+                "                \"url\": \"/api/languages/gnomish\"\n" +
+                "        }\n" +
+                "  ],\n" +
+                "        \"language_desc\": \"You can speak, read, and write Common and Gnomish. The Gnomish language, which uses the Dwarvish script, is renowned for its technical treatises and its catalogs of knowledge about the natural world.\",\n" +
+                "            \"traits\": [\n" +
+                "        {\n" +
+                "            \"index\": \"darkvision\",\n" +
+                "                \"name\": \"Darkvision\",\n" +
+                "                \"url\": \"/api/traits/darkvision\"\n" +
+                "        },\n" +
+                "        {\n" +
+                "            \"index\": \"gnome-cunning\",\n" +
+                "                \"name\": \"Gnome Cunning\",\n" +
+                "                \"url\": \"/api/traits/gnome-cunning\"\n" +
+                "        }\n" +
+                "  ],\n" +
+                "        \"subraces\": [\n" +
+                "        {\n" +
+                "            \"index\": \"rock-gnome\",\n" +
+                "                \"name\": \"Rock Gnome\",\n" +
+                "                \"url\": \"/api/subraces/rock-gnome\"\n" +
+                "        }\n" +
+                "  ],\n" +
+                "        \"url\": \"/api/races/gnome\"\n" +
+                "    }";
 
-        ClassSpells classSpells = new ClassSpells();
-        System.out.println(classSpells.getClassSpells("wizard"));
-        HttpResponse<String> response3 = classSpells.getClassSpells("wizard");
-        System.out.println(response3.statusCode());
-        System.out.println(response3.body());
-        System.out.println(response3.headers());
+        RaceMAPPER.convertJSON(HappyPathJSON);
 
-        Proficiencies proficiencies = new Proficiencies();
-        System.out.println(proficiencies.getProficiencies("elf"));
-        HttpResponse<String> response4 = proficiencies.getProficiencies("elf");
-        System.out.println(response4.statusCode());
-        System.out.println(response4.body());
-        System.out.println(response4.headers());
-
-        RaceInformation raceInformation = new RaceInformation();
-        System.out.println(raceInformation.getRaceInformation("elf"));
-        HttpResponse<String> response5 = raceInformation.getRaceInformation("elf");
-        System.out.println(response5.statusCode());
-        System.out.println(response5.body());
-        System.out.println(response5.headers());
-
-        Scanner scanner = new Scanner(System.in);
+     /*   Scanner scanner = new Scanner(System.in);
         System.out.println("Please, give the name of your character");
         String answer = scanner.nextLine();
         System.out.println("Please, give the race of your character");
@@ -64,7 +98,7 @@ public class Main {
         } catch (IOException ioException) {
             ioException.printStackTrace();
         }
-        //TODO Everything has been tested properly.
+        //TODO Everything has been tested properly. */
     }
 }
 

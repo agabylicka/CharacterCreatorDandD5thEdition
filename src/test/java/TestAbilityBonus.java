@@ -1,4 +1,5 @@
 import org.example.AbilityBonus;
+import org.example.AbilityBonusMAPPER;
 import org.example.Feature;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -10,7 +11,7 @@ public class TestAbilityBonus {
         String name = "Charisma";
         String json= "{\"name\": \""+name+"\",\"value\": \""+ 1 +"\"}";
         //when
-        AbilityBonus actual = AbilityBonus.convertJSON(json);
+        AbilityBonus actual = AbilityBonusMAPPER.convertJSON(json);
         //then
         Assertions.assertEquals(name, actual.getName());
     }
@@ -21,7 +22,7 @@ public class TestAbilityBonus {
         String name = "Charisma";
         String json= "{\"name\": \""+name+"\",\"value\": \""+ value +"\"}";
         //when
-        AbilityBonus actual = AbilityBonus.convertJSON(json);
+        AbilityBonus actual = AbilityBonusMAPPER.convertJSON(json);
         //then
         Assertions.assertEquals(value, actual.getValue());
 
@@ -32,7 +33,7 @@ public class TestAbilityBonus {
         String name = "Charisma";
         String json= "{\"name\": \""+name+"\",\"value\": \""+ 1 +"\"";
         //when
-        AbilityBonus actual = AbilityBonus.convertJSON(json);
+        AbilityBonus actual = AbilityBonusMAPPER.convertJSON(json);
         //then
         Assertions.assertNull(actual);
     }
