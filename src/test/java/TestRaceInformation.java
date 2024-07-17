@@ -1,11 +1,7 @@
-import org.example.ClassFeatures;
 import org.example.RaceInformation;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
-import java.net.ConnectException;
-import java.net.URISyntaxException;
 import java.net.http.HttpResponse;
 
 public class TestRaceInformation {
@@ -62,6 +58,7 @@ public class TestRaceInformation {
             "  ],\n" +
             "        \"url\": \"/api/races/gnome\"\n" +
             "    }";
+
     @Test
     public void testRaceInformation() {
         String index = "gnome";
@@ -69,17 +66,49 @@ public class TestRaceInformation {
         Exception thrown = null;
         HttpResponse<String> actual = null;
 
-        try{
+        try {
             actual = raceInformation.getRaceInformation(index);
         } catch (RuntimeException e) {
             thrown = e;
         }
 
         Assertions.assertNull(thrown);
-        //Assertions.assertTrue(actual.body().contains(HappyPathJSON));
         Assertions.assertEquals(200, actual.statusCode());
     }
 
+    @Test
+    public void testNullClassRaceInformation() {
+        String index = null;
+        RaceInformation raceInformation = new RaceInformation();
+        Exception thrown = null;
 
+        HttpResponse<String> actual = null;
+        try {
+            actual = raceInformation.getRaceInformation(index);
+        } catch (RuntimeException occurred) {
+            thrown = occurred;
+        }
+        Assertions.assertNotNull(thrown);
+        Assertions.assertEquals(null, actual);
+    }
 
+    @Test
+    public void testUnhappyClassRaceInformation() {
+        String index = "";
+        RaceInformation raceInformation = new RaceInformation();
+
+        HttpResponse<String> actual = raceInformation.getRaceInformation(index);
+        Assertions.assertEquals(200, actual.statusCode());
+    }
+
+    @Test
+    public void testNotExistingClassEqualsZeroResult() {
+        String index = "Non_existing";
+        RaceInformation raceInformation = new RaceInformation();
+        String expected = "{\"error\":\"Not found\"}";
+
+        HttpResponse<String> actual = raceInformation.getRaceInformation(index);
+        Assertions.assertEquals(404, actual.statusCode());
+        Assertions.assertEquals(expected, actual.body());
+    }
 }

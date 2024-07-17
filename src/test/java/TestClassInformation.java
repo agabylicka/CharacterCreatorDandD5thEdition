@@ -11,12 +11,42 @@ public class TestClassInformation {
         //given
         String index = "wizard";
         ClassInformation classInformation = new ClassInformation();
-        //String expected = "wizard";
         //when
         HttpResponse<String> actual = classInformation.getClassInformation(index);
-
         //then
-        //Assertions.assertTrue(actual.body().contains(expected));
         Assertions.assertEquals(200, actual.statusCode());
+    }
+
+    @Test
+    public void testReadAllClassesInformation() {
+        String index = "";
+        ClassInformation classInformation = new ClassInformation();
+
+        HttpResponse<String> actual = classInformation.getClassInformation(index);
+        Assertions.assertEquals(200, actual.statusCode());
+    }
+
+    @Test
+    public void testNullClassInformation() {
+        String index = null;
+        ClassInformation classInformation = new ClassInformation();
+        Exception thrown = null;
+
+        try {
+            classInformation.getClassInformation(index);
+        } catch (RuntimeException occurred) {
+            thrown = occurred;
+        }
+        Assertions.assertNotNull(thrown);
+    }
+    @Test
+    public void testNotExistingClass() {
+        String index = "Non_existing";
+        ClassInformation classInformation = new ClassInformation();
+        String expected = "{\"error\":\"Not found\"}";
+
+        HttpResponse<String> actual = classInformation.getClassInformation(index);
+        Assertions.assertEquals(404, actual.statusCode());
+        Assertions.assertEquals(expected, actual.body());
     }
 }

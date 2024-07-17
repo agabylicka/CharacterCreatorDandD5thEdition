@@ -16,7 +16,7 @@ public class Proficiencies {
             request = HttpRequest.newBuilder(new URI(userURL.replace(":index", index))).GET().build();
             HttpResponse<String>response = client.send(request,HttpResponse.BodyHandlers.ofString());
             return response;
-        } catch (IOException | URISyntaxException | InterruptedException e) {
+        } catch (IOException | URISyntaxException | InterruptedException | NullPointerException e) {
             throw new RuntimeException(e);
         }
     }
