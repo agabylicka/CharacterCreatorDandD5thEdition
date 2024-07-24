@@ -14,7 +14,6 @@ public class SpellsMAPPER {
             spells.setName((node.get("name").asText()));
             return spells;
         } catch (JsonProcessingException e) {
-            //throw new RuntimeException(e);
             System.err.println(e.getMessage());
         }
         return null;

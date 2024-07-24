@@ -4,12 +4,12 @@ import java.util.List;
 
 public class Race {
 
-    int bonuses;
+    List<AbilityBonus> bonuses;
     int speed;
     String size;
 
     List<String> languages;
-    int proficiencies;
+    List<String> proficiencies;
 
     public List<String> getLanguages() {
         return this.languages;
@@ -19,15 +19,15 @@ public class Race {
         this.languages = languages;
     }
 
-    public int getProficiencies() {
+    public List<String> getProficiencies() {
         return this.proficiencies;
     }
 
-    public void setProficiencies(int proficiencies) {
+    public void setProficiencies(List<String> proficiencies) {
         this.proficiencies = proficiencies;
     }
 
-    public int getBonuses() {
+    public List<AbilityBonus> getBonuses() {
         return this.bonuses;
     }
 
@@ -39,7 +39,7 @@ public class Race {
         this.size = size;
     }
 
-    public void setBonuses(int bonuses) {
+    public void setBonuses(List<AbilityBonus> bonuses) {
         this.bonuses = bonuses;
     }
 

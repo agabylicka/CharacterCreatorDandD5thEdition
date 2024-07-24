@@ -14,7 +14,6 @@ public class FeatureMAPPER {
             feature.setName((node.get("name").asText()));
             return feature;
         } catch (JsonProcessingException e) {
-            //throw new RuntimeException(e);
             System.err.println(e.getMessage());
         }
         return null;
