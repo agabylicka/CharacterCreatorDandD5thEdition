@@ -15,7 +15,6 @@ public class AbilityBonusMAPPER {
             abilityBonus.setValue((node.get("value").asInt()));
             return abilityBonus;
         } catch (JsonProcessingException e) {
-            //throw new RuntimeException(e);
             System.err.println(e.getMessage());
         }
         return null;
