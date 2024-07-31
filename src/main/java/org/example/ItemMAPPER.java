@@ -12,6 +12,7 @@ public class ItemMAPPER {
             Item item = new Item();
             JsonNode node = MAPPER.readTree(postJSON);
             item.setName((node.get("name").asText()));
+            item.setQuantity(node.get("quantity").asInt());
             return item;
         } catch (JsonProcessingException e) {
             //throw new RuntimeException(e);

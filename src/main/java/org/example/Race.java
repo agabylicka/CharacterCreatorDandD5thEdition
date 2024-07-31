@@ -4,12 +4,12 @@ import java.util.List;
 
 public class Race {
 
-    List<AbilityBonus> bonuses;
-    int speed;
-    String size;
+    private List<AbilityBonus> bonuses;
+    private int speed;
+    private String size;
 
-    List<String> languages;
-    List<String> proficiencies;
+    private List<String> languages;
+    private List<String> proficiencies;
 
     public List<String> getLanguages() {
         return this.languages;
