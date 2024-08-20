@@ -1,6 +1,7 @@
 import org.example.RaceInformation;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.opentest4j.AssertionFailedError;
 
 import java.net.http.HttpResponse;
 
@@ -63,16 +64,7 @@ public class TestRaceInformation {
     public void testRaceInformation() {
         String index = "gnome";
         RaceInformation raceInformation = new RaceInformation();
-        Exception thrown = null;
-        HttpResponse<String> actual = null;
-
-        try {
-            actual = raceInformation.getRaceInformation(index);
-        } catch (RuntimeException e) {
-            thrown = e;
-        }
-
-        Assertions.assertNull(thrown);
+        HttpResponse<String> actual = raceInformation.getRaceInformation(index);
         Assertions.assertEquals(200, actual.statusCode());
     }
 
@@ -80,16 +72,7 @@ public class TestRaceInformation {
     public void testNullClassRaceInformation() {
         String index = null;
         RaceInformation raceInformation = new RaceInformation();
-        Exception thrown = null;
-
-        HttpResponse<String> actual = null;
-        try {
-            actual = raceInformation.getRaceInformation(index);
-        } catch (RuntimeException occurred) {
-            thrown = occurred;
-        }
-        Assertions.assertNotNull(thrown);
-        Assertions.assertEquals(null, actual);
+        Assertions.assertThrows(RuntimeException.class, () -> raceInformation.getRaceInformation(index));
     }
 
     @Test

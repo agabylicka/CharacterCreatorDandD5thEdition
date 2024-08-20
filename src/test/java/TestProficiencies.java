@@ -17,16 +17,7 @@ public class TestProficiencies {
     public void testNullClassProficiencies() {
         String index = null;
         Proficiencies proficiencies = new Proficiencies();
-        Exception thrown = null;
-
-        HttpResponse<String> actual = null;
-        try {
-            actual = proficiencies.getProficiencies(index);
-        } catch (RuntimeException occurred) {
-            thrown = occurred;
-        }
-        Assertions.assertNotNull(thrown);
-        Assertions.assertEquals(null, actual);
+        Assertions.assertThrows(RuntimeException.class, () -> proficiencies.getProficiencies(index));
     }
 
     @Test

@@ -21,16 +21,7 @@ public class TestClassSpells {
     public void testNullClassFeatures() {
         String index = null;
         ClassSpells classSpells = new ClassSpells();
-        Exception thrown = null;
-
-        HttpResponse<String> actual = null;
-        try {
-            actual = classSpells.getClassSpells(index);
-        } catch (RuntimeException occurred) {
-            thrown = occurred;
-        }
-        Assertions.assertNotNull(thrown);
-        Assertions.assertEquals(null, actual);
+        Assertions.assertThrows(RuntimeException.class, () -> classSpells.getClassSpells(index));
     }
     @Test
     public void testUnhappyClassFeatures() {

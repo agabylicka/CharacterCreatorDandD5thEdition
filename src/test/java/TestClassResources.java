@@ -17,16 +17,7 @@ public class TestClassResources {
     public void testNullClassResources() {
         String index = null;
         ClassResources classResources = new ClassResources();
-        Exception thrown = null;
-
-        HttpResponse<String> actual = null;
-        try {
-            actual = classResources.getClassResources(index);
-        } catch (RuntimeException occurred) {
-            thrown = occurred;
-        }
-        Assertions.assertNotNull(thrown);
-        Assertions.assertEquals(null, actual);
+        Assertions.assertThrows(RuntimeException.class, () -> classResources.getClassResources(index));
     }
 
     @Test
@@ -38,7 +29,7 @@ public class TestClassResources {
         Assertions.assertEquals(404, actual.statusCode());
     }
 
-    @Test //behaviour like in TestClassInformation
+    @Test
     public void testNotExistingClassEqualsZeroResult() {
         String index = "Non_existing";
         ClassResources classResources = new ClassResources();

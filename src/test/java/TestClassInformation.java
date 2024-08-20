@@ -30,14 +30,7 @@ public class TestClassInformation {
     public void testNullClassInformation() {
         String index = null;
         ClassInformation classInformation = new ClassInformation();
-        Exception thrown = null;
-
-        try {
-            classInformation.getClassInformation(index);
-        } catch (RuntimeException occurred) {
-            thrown = occurred;
-        }
-        Assertions.assertNotNull(thrown);
+        Assertions.assertThrows(RuntimeException.class, () -> classInformation.getClassInformation(index));
     }
     @Test
     public void testNotExistingClass() {

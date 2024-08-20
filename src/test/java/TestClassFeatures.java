@@ -17,17 +17,9 @@ public class TestClassFeatures {
     public void testNullClassFeatures() {
         String index = null;
         ClassFeatures classFeatures = new ClassFeatures();
-        Exception thrown = null;
-
-        HttpResponse<String> actual = null;
-        try {
-            actual = classFeatures.getClassFeatures(index);
-        } catch (RuntimeException occurred) {
-            thrown = occurred;
-        }
-        Assertions.assertNotNull(thrown);
-        Assertions.assertEquals(null, actual);
+        Assertions.assertThrows(RuntimeException.class, () -> classFeatures.getClassFeatures(index));
     }
+
     @Test
     public void testUnhappyClassFeatures() {
         String index = "";
