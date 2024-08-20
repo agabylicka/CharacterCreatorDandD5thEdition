@@ -20,4 +20,12 @@ public class AbilityBonus {
     public void setValue(int value) {
         this.value = value;
     }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "\"name\": \"" + name + "\", " +
+                "\"value\": " + value +
+                '}';
+    }
 }

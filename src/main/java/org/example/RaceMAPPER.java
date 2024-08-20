@@ -18,15 +18,14 @@ public class RaceMAPPER {
             race.setSpeed((node.get("speed").asInt())); //?
             List<String> languages = new ArrayList<>();
             for (int i = 0; i < node.get("languages").size(); i++) {
-                String language = node.get("languages").get(i).get("name").asText();
+                String language = node.get("languages").get(i).asText();
                 languages.add(language);
             }
             List<String> proficiencies = new ArrayList<>();
             for (int i = 0; i < node.get("starting_proficiencies").size(); i++) {
-                String proficience = node.get("starting_proficiencies").get(i).get("name").asText();
+                String proficience = node.get("starting_proficiencies").get(i).asText();
                 proficiencies.add(proficience);
             }
-            ParseAbilityBonus parseAbilityBonus = new ParseAbilityBonus();
             List<AbilityBonus> bonuses = new ArrayList<>();
             for (int i = 0; i < node.get("ability_bonuses").size(); i++) {
                 AbilityBonus bonus;

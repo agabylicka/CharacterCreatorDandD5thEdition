@@ -7,6 +7,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.List;
 
 public class Clazz {
+    private List<String> availableSkills;
+    private List<String> proficiencies;
+    private List<Item> startingEquipment;
 
     public List<String> getAvailableSkills() {
         return this.availableSkills;
@@ -16,8 +19,6 @@ public class Clazz {
         this.availableSkills = availableSkills;
     }
 
-    List<String> availableSkills;
-
     public List<String> getProficiencies() {
         return this.proficiencies;
     }
@@ -26,8 +27,6 @@ public class Clazz {
         this.proficiencies = proficiencies;
     }
 
-    List<String> proficiencies;
-
     public List<Item> getStartingEquipment() {
         return this.startingEquipment;
     }
@@ -35,6 +34,4 @@ public class Clazz {
     public void setStartingEquipment(List<Item> startingEquipment) {
         this.startingEquipment = startingEquipment;
     }
-
-    List<Item> startingEquipment;
 }

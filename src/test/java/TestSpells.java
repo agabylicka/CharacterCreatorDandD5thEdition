@@ -44,8 +44,7 @@ public class TestSpells {
     @Test
     public void testConvertJSONSpellsOnlyWithWhiteSigns() {
         //given
-        String name = "\t \r \n";
-        String json = "{\"name\": \"" + name + "\"}";
+        String json = "{\"name\": \"\t \n \n\"}";
         //when
         Spells actual = SpellsMAPPER.convertJSON(json);
         //then
@@ -65,8 +64,7 @@ public class TestSpells {
     @Test
     public void testErroneusConvertJSONSpellsWithWrongNameType() {
         //given
-        String name = "illusion";
-        String json = "{\"nname\": \"" + name + "\"}";
+        String json = "{\"nname\": \"illusion\"}";
         Exception thrown = null;
         //when
             /*Spells actual = null;
