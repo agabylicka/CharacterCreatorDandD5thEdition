@@ -2,8 +2,8 @@ package org.example;
 
 public class Item {
 
-    String name;
-    int quantity;
+    private String name;
+    private int quantity;
 
     public String getName() {
         return this.name;

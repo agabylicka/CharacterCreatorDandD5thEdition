@@ -1,6 +1,5 @@
 import org.example.AbilityBonus;
 import org.example.AbilityBonusMAPPER;
-import org.example.Feature;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
