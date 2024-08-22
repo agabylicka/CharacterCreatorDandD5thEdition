@@ -32,8 +32,7 @@ public class ClazzMAPPER {
 
             List<Item> startingEquipment = new ArrayList<>();
             for (int i = 0; i < node.get("starting_equipment").size(); i++) {
-                Item equipment;
-                String tmpEquipment = node.get("starting_equipment").get(i).get("equipment").get("name").asText();
+                String tmpEquipment = node.get("starting_equipment").get(i).get("name").asText();
                 int quantityValue = node.get("starting_equipment").get(i).get("quantity").asInt();
                 Item item = new Item();
                 item.setName(tmpEquipment);

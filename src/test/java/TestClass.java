@@ -88,4 +88,27 @@ public class TestClass {
         Assertions.assertTrue(actual.getAvailableSkills().contains(available_skill));
     }
 
+    @Test
+    public void testConvertJSONWithStartingEquipment(){
+        //given
+        Item tool = new Item();
+        tool.setName("rope");
+        tool.setQuantity(1);
+        String json= "{ " +
+                "\"proficiencies\": [], " +
+                "\"starting_equipment\" : [" + tool.toString() + "]," +
+                "\"available_skills\": []}";
+
+        //when
+        Clazz actual = ClazzMAPPER.convertJSON(json);
+
+        //then
+        Assertions.assertNotNull(actual);
+        Assertions.assertNotNull(actual.getStartingEquipment());
+        Assertions.assertFalse(actual.getStartingEquipment().isEmpty());
+        Assertions.assertEquals(tool.toString(), actual.getStartingEquipment().get(0).toString());
+    }
+
+
+
 }
