@@ -13,17 +13,23 @@ public class ClazzMAPPER {
     public static Clazz convertJSON(String postJSON) {
         try {
             Clazz clazz = new Clazz();
+
             JsonNode node = MAPPER.readTree(postJSON);
+
             List<String> proficiencies = new ArrayList<>();
             for (int i = 0; i < node.get("proficiencies").size(); i++) {
-                String proficience = node.get("proficiencies").get(i).get("name").asText();
+                String proficience = node.get("proficiencies").get(i).asText();
                 proficiencies.add(proficience);
             }
+            clazz.setProficiencies(proficiencies);
+
             List<String> availableSkills = new ArrayList<>();
             for (int i = 0; i < node.get("available_skills").size(); i++) {
-                String skill = node.get("available_skills").get(i).get("name").asText();
+                String skill = node.get("available_skills").get(i).asText();
                 availableSkills.add(skill);
             }
+            clazz.setAvailableSkills(availableSkills);
+
             List<Item> startingEquipment = new ArrayList<>();
             for (int i = 0; i < node.get("starting_equipment").size(); i++) {
                 Item equipment;
@@ -34,6 +40,7 @@ public class ClazzMAPPER {
                 item.setQuantity(quantityValue);
                 startingEquipment.add(item);
             }
+            clazz.setStartingEquipment(startingEquipment);
 
             return clazz;
         } catch (JsonProcessingException e) {

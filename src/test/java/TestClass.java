@@ -52,4 +52,40 @@ public class TestClass {
         Assertions.assertEquals(testAvailableSkills, actual);
     }
 
+    @Test
+    public void testConvertJSONWithProficiency(){
+        //given
+        String proficiency = "bard";
+        String json= "{ " +
+                "\"proficiencies\" : [\"" + proficiency + "\"]," +
+                "\"available_skills\": [], " +
+                "\"starting_equipment\": []}";
+
+        //when
+        Clazz actual = ClazzMAPPER.convertJSON(json);
+
+        //then
+        Assertions.assertNotNull(actual);
+        Assertions.assertNotNull(actual.getProficiencies());
+        Assertions.assertTrue(actual.getProficiencies().contains(proficiency));
+    }
+
+    @Test
+    public void testConvertJSONWithAvailableSkills(){
+        //given
+        String available_skill = "lockpick";
+        String json= "{ " +
+                "\"proficiencies\": [], " +
+                "\"available_skills\" : [\"" + available_skill + "\"]," +
+                "\"starting_equipment\": []}";
+
+        //when
+        Clazz actual = ClazzMAPPER.convertJSON(json);
+
+        //then
+        Assertions.assertNotNull(actual);
+        Assertions.assertNotNull(actual.getAvailableSkills());
+        Assertions.assertTrue(actual.getAvailableSkills().contains(available_skill));
+    }
+
 }
