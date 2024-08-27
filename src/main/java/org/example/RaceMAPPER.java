@@ -15,7 +15,7 @@ public class RaceMAPPER {
             Race race = new Race();
             JsonNode node = MAPPER.readTree(postJSON);
             race.setSize((node.get("size").asText()));
-            race.setSpeed((node.get("speed").asInt())); //?
+            race.setSpeed((node.get("speed").asInt()));
             List<String> languages = new ArrayList<>();
             for (int i = 0; i < node.get("languages").size(); i++) {
                 String language = node.get("languages").get(i).asText();

@@ -8,10 +8,10 @@ import java.util.List;
 public class TestClass {
 
     @Test
-    public void shootPassStartingEquipmentTest() {
+    public void StartingEquipmentIsNotNullTest() {
         //given
         List<Item> testList = new ArrayList<>();
-        Clazz instance = new Clazz();
+        CharacterClass instance = new CharacterClass();
 
         //when
         instance.setStartingEquipment(testList);
@@ -26,7 +26,7 @@ public class TestClass {
     public void PassProficienciesTest() {
         //given
         List<String> testProficiencies = new ArrayList<>();
-        Clazz proficiencies = new Clazz();
+        CharacterClass proficiencies = new CharacterClass();
 
         //when
         proficiencies.setProficiencies(testProficiencies);
@@ -41,7 +41,7 @@ public class TestClass {
     public void PassAvailableSkills() {
         //given
         List<String> testAvailableSkills = new ArrayList<>();
-        Clazz availableSkills = new Clazz();
+        CharacterClass availableSkills = new CharacterClass();
 
         //when
         availableSkills.setAvailableSkills((testAvailableSkills));
@@ -62,7 +62,7 @@ public class TestClass {
                 "\"starting_equipment\": []}";
 
         //when
-        Clazz actual = ClazzMAPPER.convertJSON(json);
+        CharacterClass actual = ClazzMAPPER.convertJSON(json);
 
         //then
         Assertions.assertNotNull(actual);
@@ -80,7 +80,7 @@ public class TestClass {
                 "\"starting_equipment\": []}";
 
         //when
-        Clazz actual = ClazzMAPPER.convertJSON(json);
+        CharacterClass actual = ClazzMAPPER.convertJSON(json);
 
         //then
         Assertions.assertNotNull(actual);
@@ -100,7 +100,7 @@ public class TestClass {
                 "\"available_skills\": []}";
 
         //when
-        Clazz actual = ClazzMAPPER.convertJSON(json);
+        CharacterClass actual = ClazzMAPPER.convertJSON(json);
 
         //then
         Assertions.assertNotNull(actual);
@@ -108,7 +108,4 @@ public class TestClass {
         Assertions.assertFalse(actual.getStartingEquipment().isEmpty());
         Assertions.assertEquals(tool.toString(), actual.getStartingEquipment().get(0).toString());
     }
-
-
-
 }

@@ -8,7 +8,7 @@ public class Character {
     private Race race;
     private String backstory;
     private List<Feature> features;
-    private Clazz clazz;
+    private CharacterClass characterClass;
     private List<Spells> spells;
     private List<String> languages;
     private List<String> proficiencies;

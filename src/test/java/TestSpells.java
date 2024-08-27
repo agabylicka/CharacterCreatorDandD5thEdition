@@ -66,16 +66,6 @@ public class TestSpells {
         //given
         String json = "{\"nname\": \"illusion\"}";
         Exception thrown = null;
-        //when
-            /*Spells actual = null;
-            try {
-                actual = SpellsMAPPER.convertJSON(json);
-            } catch (Exception occurred) {
-                thrown = occurred;
-            }
-            //then
-            Assertions.assertNotNull(thrown);
-            Assertions.assertNull(actual); */
         assertThrows(NullPointerException.class, () -> SpellsMAPPER.convertJSON(json));
     }
 

@@ -8,14 +8,13 @@ public class Feature {
         this.name = name;
     }
 
-    //build JSON
+    public String getName() {
+        return this.name;
+    }
+
     @Override
     public String toString() {
         return "{\"name\": "+name+"}";
-    }
-
-    public String getName() {
-        return this.name;
     }
 }
 

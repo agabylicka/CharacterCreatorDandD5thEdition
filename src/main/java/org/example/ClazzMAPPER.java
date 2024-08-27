@@ -10,9 +10,9 @@ import java.util.List;
 public class ClazzMAPPER {
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
-    public static Clazz convertJSON(String postJSON) {
+    public static CharacterClass convertJSON(String postJSON) {
         try {
-            Clazz clazz = new Clazz();
+            CharacterClass characterClass = new CharacterClass();
 
             JsonNode node = MAPPER.readTree(postJSON);
 
@@ -21,14 +21,14 @@ public class ClazzMAPPER {
                 String proficience = node.get("proficiencies").get(i).asText();
                 proficiencies.add(proficience);
             }
-            clazz.setProficiencies(proficiencies);
+            characterClass.setProficiencies(proficiencies);
 
             List<String> availableSkills = new ArrayList<>();
             for (int i = 0; i < node.get("available_skills").size(); i++) {
                 String skill = node.get("available_skills").get(i).asText();
                 availableSkills.add(skill);
             }
-            clazz.setAvailableSkills(availableSkills);
+            characterClass.setAvailableSkills(availableSkills);
 
             List<Item> startingEquipment = new ArrayList<>();
             for (int i = 0; i < node.get("starting_equipment").size(); i++) {
@@ -39,9 +39,9 @@ public class ClazzMAPPER {
                 item.setQuantity(quantityValue);
                 startingEquipment.add(item);
             }
-            clazz.setStartingEquipment(startingEquipment);
+            characterClass.setStartingEquipment(startingEquipment);
 
-            return clazz;
+            return characterClass;
         } catch (JsonProcessingException e) {
             System.err.println(e.getMessage());
         }

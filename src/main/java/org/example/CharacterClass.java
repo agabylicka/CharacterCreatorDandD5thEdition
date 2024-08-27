@@ -1,12 +1,8 @@
 package org.example;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.util.List;
 
-public class Clazz {
+public class CharacterClass {
     private List<String> availableSkills;
     private List<String> proficiencies;
     private List<Item> startingEquipment;
