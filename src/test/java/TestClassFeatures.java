@@ -13,6 +13,7 @@ public class TestClassFeatures {
         HttpResponse<String> actual = classFeatures.getClassFeatures(index);
         Assertions.assertEquals(200, actual.statusCode());
     }
+
     @Test
     public void testNullClassFeatures() {
         String index = null;
@@ -28,6 +29,7 @@ public class TestClassFeatures {
         HttpResponse<String> actual = classFeatures.getClassFeatures(index);
         Assertions.assertEquals(404, actual.statusCode());
     }
+
     @Test
     public void testNotExistingClassEqualsZeroResult() {
         String index = "Non_existing";

@@ -11,9 +11,7 @@ public class TestClassSpells {
         public void testClassSpells() {
             String index = "bard";
             ClassSpells classSpells = new ClassSpells();
-            //String expected = "Bane";
             HttpResponse<String> actual = classSpells.getClassSpells(index);
-            //Assertions.assertTrue(actual.body().contains(expected));
             Assertions.assertEquals(200, actual.statusCode());
         }
 
