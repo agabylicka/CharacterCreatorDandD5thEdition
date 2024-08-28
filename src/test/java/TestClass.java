@@ -62,7 +62,7 @@ public class TestClass {
                 "\"starting_equipment\": []}";
 
         //when
-        CharacterClass actual = ClazzMAPPER.convertJSON(json);
+        CharacterClass actual = CharacterClassMAPPER.convertJSON(json);
 
         //then
         Assertions.assertNotNull(actual);
@@ -80,7 +80,7 @@ public class TestClass {
                 "\"starting_equipment\": []}";
 
         //when
-        CharacterClass actual = ClazzMAPPER.convertJSON(json);
+        CharacterClass actual = CharacterClassMAPPER.convertJSON(json);
 
         //then
         Assertions.assertNotNull(actual);
@@ -100,7 +100,7 @@ public class TestClass {
                 "\"available_skills\": []}";
 
         //when
-        CharacterClass actual = ClazzMAPPER.convertJSON(json);
+        CharacterClass actual = CharacterClassMAPPER.convertJSON(json);
 
         //then
         Assertions.assertNotNull(actual);

@@ -71,7 +71,11 @@ public class TestRace {
         //when
         Race actual = RaceMAPPER.convertJSON(json);
         //then
+        Assertions.assertNotNull(actual.getBonuses());
+        Assertions.assertFalse(actual.getBonuses().isEmpty());
+        Assertions.assertEquals(2, actual.getBonuses().size());
         Assertions.assertEquals(size, actual.getSize());
+
     }
 
     @Test

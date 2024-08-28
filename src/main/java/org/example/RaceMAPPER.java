@@ -28,7 +28,6 @@ public class RaceMAPPER {
             }
             List<AbilityBonus> bonuses = new ArrayList<>();
             for (int i = 0; i < node.get("ability_bonuses").size(); i++) {
-                AbilityBonus bonus;
                 String tmpBonus = node.get("ability_bonuses").get(i).get("ability_score").get("name").asText();
                 int bonusValue = node.get("ability_bonuses").get(i).get("bonus").asInt();
                 AbilityBonus abilityBonus1 = new AbilityBonus();
@@ -36,6 +35,7 @@ public class RaceMAPPER {
                 abilityBonus1.setValue(bonusValue);
                 bonuses.add(abilityBonus1);
             }
+            race.setBonuses(bonuses);
             return race;
         } catch (JsonProcessingException e) {
             System.err.println(e.getMessage());

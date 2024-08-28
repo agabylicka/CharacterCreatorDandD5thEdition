@@ -1,7 +1,10 @@
 import org.example.AbilityBonus;
 import org.example.AbilityBonusMAPPER;
+import org.example.SpellsMAPPER;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class TestAbilityBonus {
     @Test
@@ -58,6 +61,26 @@ public class TestAbilityBonus {
         AbilityBonus actual = AbilityBonusMAPPER.convertJSON(json);
         //then
         Assertions.assertEquals(value, actual.getValue());
+    }
+
+    @Test
+    public void testConvertJSONWithoutName() {
+        //given
+        int value = 1;
+        String name = "Charisma";
+        String json = "{\"value\": \"" + value + "\"}";
+        //then
+        assertThrows(NullPointerException.class, () -> AbilityBonusMAPPER.convertJSON(json));
+    }
+
+    @Test
+    public void testConvertJSONWithATypoInTheValue() {
+        //given
+        int value = 1;
+        String name = "Charisma";
+        String json = "{\"name\": \"" + name + "\",\"vaue\": \"" + value + "\"}";
+        //when
+        assertThrows(NullPointerException.class, () -> AbilityBonusMAPPER.convertJSON(json));
     }
 
     @Test

@@ -7,14 +7,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClazzMAPPER {
+public class CharacterClassMAPPER {
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
-    public static CharacterClass convertJSON(String postJSON) {
+    public static CharacterClass convertJSON(String JSON) {
         try {
             CharacterClass characterClass = new CharacterClass();
 
-            JsonNode node = MAPPER.readTree(postJSON);
+            JsonNode node = MAPPER.readTree(JSON);
 
             List<String> proficiencies = new ArrayList<>();
             for (int i = 0; i < node.get("proficiencies").size(); i++) {
