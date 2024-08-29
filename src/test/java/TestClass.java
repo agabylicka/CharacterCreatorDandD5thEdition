@@ -12,6 +12,10 @@ public class TestClass {
         //given
         List<Item> testList = new ArrayList<>();
         CharacterClass instance = new CharacterClass();
+        Item item = new Item();
+        item.setName("stone");
+        item.setQuantity(3);
+        testList.add(item);
 
         //when
         instance.setStartingEquipment(testList);
@@ -56,6 +60,8 @@ public class TestClass {
     public void testConvertJSONWithProficiency(){
         //given
         String proficiency = "bard";
+        List<String> proficiencies = new ArrayList<>();
+        proficiencies.add(proficiency);
         String json= "{ " +
                 "\"proficiencies\" : [\"" + proficiency + "\"]," +
                 "\"available_skills\": [], " +
@@ -67,7 +73,8 @@ public class TestClass {
         //then
         Assertions.assertNotNull(actual);
         Assertions.assertNotNull(actual.getProficiencies());
-        Assertions.assertTrue(actual.getProficiencies().contains(proficiency));
+        Assertions.assertEquals(proficiencies,actual.getProficiencies());
+
     }
 
     @Test

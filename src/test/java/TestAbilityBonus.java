@@ -83,27 +83,23 @@ public class TestAbilityBonus {
     }
 
     @Test
-    public void testConvertJSONWithMinusValue() {
+    public void testConvertJSONWithATypoInTheName() {
         //given
-        int value = -1;
+        int value = 1;
         String name = "Charisma";
-        String json = "{\"name\": \"" + name + "\",\"value\": \"" + value + "\"}";
+        String json = "{\"nae\": \"" + name + "\",\"value\": \"" + value + "\"}";
         //when
-        AbilityBonus actual = AbilityBonusMAPPER.convertJSON(json);
-        //then
-        Assertions.assertEquals(value, actual.getValue());
+        assertThrows(NullPointerException.class, () -> AbilityBonusMAPPER.convertJSON(json));
     }
 
     @Test
-    public void testConvertJSONWithMinusZero() {
+    public void testConvertJSONWithATypoInTheValueAndName() {
         //given
-        int value = 0;
+        int value = 1;
         String name = "Charisma";
-        String json = "{\"name\": \"" + name + "\",\"value\": \"" + value + "\"}";
+        String json = "{\"nae\": \"" + name + "\",\"vaue\": \"" + value + "\"}";
         //when
-        AbilityBonus actual = AbilityBonusMAPPER.convertJSON(json);
-        //then
-        Assertions.assertEquals(value, actual.getValue());
+        assertThrows(NullPointerException.class, () -> AbilityBonusMAPPER.convertJSON(json));
     }
 
     @Test
