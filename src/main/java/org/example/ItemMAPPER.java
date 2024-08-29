@@ -7,10 +7,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class ItemMAPPER {
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
-    public static Item convertJSON(String postJSON) {
+    public static Item convertJSON(String JSON) {
         try {
             Item item = new Item();
-            JsonNode node = MAPPER.readTree(postJSON);
+            JsonNode node = MAPPER.readTree(JSON);
             item.setName((node.get("name").asText()));
             item.setQuantity(node.get("quantity").asInt());
             return item;
