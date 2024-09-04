@@ -18,17 +18,39 @@ public class Main {
             System.out.println("Please, give valid race name of your character");
             answer1 = scanner.nextLine();
 
-            String response = RESTCaller.get("https://www.dnd5eapi.co/api/races/%s".formatted(answer1));
+            String response = RESTCaller.exists("https://www.dnd5eapi.co/api/races/%s".formatted(answer1));
             if (response != null && response.trim().equals("OK")) {
                 existingRace = true;
             }
         } while (!existingRace);
 
+        String answer2;
+        boolean existingClass = false;
+        do {
+            System.out.println("Please, give the class of your character");
+            answer2 = scanner.nextLine();
 
-        System.out.println("Please, give the class of your character");
-        String answer2 = scanner.nextLine();
-        System.out.println("Please, select spells or/and cantrips of your character");
-        String answer3 = scanner.nextLine();
+            String response = RESTCaller.exists("https://www.dnd5eapi.co/api/classes/%s".formatted(answer2));
+            if (response != null && response.trim().equals("OK")) {
+                existingClass = true;
+            }
+        } while (!existingClass);
+
+        String responseSpells = RESTCaller.passContent("https://www.dnd5eapi.co/api/classes/%s/spellcasting"
+                .formatted(answer2));
+        boolean spellsExist = responseSpells != null;
+        if (spellsExist) {
+            // TODO DEBUG INFO
+            System.out.println(responseSpells);
+            return;
+        }
+
+        String answer3 = "";
+        if (spellsExist) {
+            System.out.println("Please, select spells or/and cantrips of your character");
+            answer3 = scanner.nextLine();
+        }
+
         System.out.println("Please write background for your character");
         String answer4 = scanner.nextLine();
 
@@ -46,7 +68,7 @@ public class Main {
             bufferedWriter.write("\n");
             bufferedWriter.write("class: " + answer2);
             bufferedWriter.write(("\n"));
-            //TODO user should select spells (and race and class)
+            //TODO user is able to select spells/cantrips if available (can be done via a list and number of the spell);
             bufferedWriter.write("spells or/and cantrips: " + answer3);
             bufferedWriter.write(("\n"));
             bufferedWriter.write("background: " + answer4);
