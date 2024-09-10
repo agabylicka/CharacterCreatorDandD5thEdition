@@ -1,9 +1,15 @@
 package org.example;
 
+import org.example.HTTP.AllRacesResponse;
+import org.example.HTTP.AllRacesResult;
+import org.example.HTTP.RaceInformation;
+import org.example.MAPPERS.AllRacesMAPPER;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.http.HttpResponse;
 import java.util.Scanner;
 
 public class Main {
@@ -12,31 +18,44 @@ public class Main {
         System.out.println("Please, give the name of your character");
         String name = scanner.nextLine();
 
+        RaceInformation restInformation = new RaceInformation();
+        String allRaces = null;
+        String response1 = restInformation.getAllRaces();
+        AllRacesResponse allRacesResponse = new AllRacesResponse();
+        allRacesResponse = AllRacesMAPPER.convertJSON(response1);
+        response1 = "";
+        for (AllRacesResult result : allRacesResponse.getResults()) {
+            response1 = response1 + result.getName() + ", ";
+        }
+        System.out.println("All races are: " + response1);
+
         String race;
         boolean existingRace = false;
         do {
             System.out.println("Please, give valid race name of your character");
-            race = scanner.nextLine();
+            race = scanner.nextLine().trim().toLowerCase();
 
-            String response = RESTCaller.exists("https://www.dnd5eapi.co/api/races/%s".formatted(race));
-            if (response != null && response.trim().equals("OK")) {
+            HttpResponse response = restInformation.getRaceInformation(race);
+
+            String body = response.body().toString();
+
+            if (response != null && response.statusCode() == 200) {
                 existingRace = true;
             }
         } while (!existingRace);
 
-        String classes;
+        /*String classes;
         boolean existingClass = false;
         do {
             System.out.println("Please, give the class of your character");
             classes = scanner.nextLine();
 
-            String response = RESTCaller.exists("https://www.dnd5eapi.co/api/classes/%s".formatted(classes));
             if (response != null && response.trim().equals("OK")) {
                 existingClass = true;
             }
         } while (!existingClass);
 
-        String responseSpells = RESTCaller.passContent("https://www.dnd5eapi.co/api/classes/%s/spellcasting"
+
                 .formatted(classes));
         boolean spellsExist = responseSpells != null;
         if (spellsExist) {
@@ -50,7 +69,7 @@ public class Main {
             System.out.println("Please, select spells or/and cantrips of your character");
             spell = scanner.nextLine();
         }
-
+//TODO doesn't ask about background
         System.out.println("Please write background for your character");
         String background = scanner.nextLine();
 
