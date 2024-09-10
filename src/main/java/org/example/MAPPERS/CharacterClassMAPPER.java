@@ -1,8 +1,10 @@
-package org.example;
+package org.example.MAPPERS;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.example.StandardClasses.CharacterClass;
+import org.example.StandardClasses.Item;
 
 import java.util.ArrayList;
 import java.util.List;

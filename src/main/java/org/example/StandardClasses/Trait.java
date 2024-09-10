@@ -1,8 +1,9 @@
-package org.example;
+package org.example.StandardClasses;
 
-public class Subrace {
+public class Trait {
 
     private String index;
     private String name;
     private String url;
+
 }

@@ -1,5 +1,5 @@
-import org.example.Spells;
-import org.example.SpellsMAPPER;
+import org.example.StandardClasses.Spells;
+import org.example.MAPPERS.SpellsMAPPER;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

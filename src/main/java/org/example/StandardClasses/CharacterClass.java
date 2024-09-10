@@ -1,4 +1,4 @@
-package org.example;
+package org.example.StandardClasses;
 
 import java.util.List;
 

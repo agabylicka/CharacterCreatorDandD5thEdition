@@ -1,31 +1,31 @@
-package org.example;
+package org.example.StandardClasses;
 
-public class AbilityBonus {
+public class Item {
 
     private String name;
-    private int value;
+    private int quantity;
 
     public String getName() {
         return this.name;
-    }
-
-    public int getValue() {
-        return this.value;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setValue(int value) {
-        this.value = value;
+    public int getQuantity() {
+        return this.quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     @Override
     public String toString() {
         return "{" +
                 "\"name\": \"" + name + "\", " +
-                "\"value\": " + value +
+                "\"quantity\": " + quantity +
                 '}';
     }
 }

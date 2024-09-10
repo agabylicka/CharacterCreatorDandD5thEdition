@@ -1,4 +1,4 @@
-import org.example.ClassInformation;
+import org.example.HTTP.ClassInformation;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

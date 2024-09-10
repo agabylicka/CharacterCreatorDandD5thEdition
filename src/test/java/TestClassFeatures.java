@@ -1,4 +1,4 @@
-import org.example.ClassFeatures;
+import org.example.HTTP.ClassFeatures;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

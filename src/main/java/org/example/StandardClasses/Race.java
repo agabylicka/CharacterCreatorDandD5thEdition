@@ -1,4 +1,6 @@
-package org.example;
+package org.example.StandardClasses;
+
+import org.example.StandardClasses.AbilityBonus;
 
 import java.util.List;
 
