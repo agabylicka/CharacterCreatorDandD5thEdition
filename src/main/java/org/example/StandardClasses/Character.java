@@ -3,10 +3,11 @@ package org.example.StandardClasses;
 import java.util.List;
 
 public class Character {
-    private Race race;
+    private String name;
+    private String race;
     private String backstory;
     private List<Feature> features;
-    private CharacterClass characterClass;
+    private String characterClass;
     private List<Spells> spells;
     private List<String> languages;
     private List<String> proficiencies;
@@ -19,13 +20,11 @@ public class Character {
         this.name = name;
     }
 
-    private String name;
-
-    public Race getRace() {
+    public String getRace() {
         return this.race;
     }
 
-    public void setRace(Race race) {
+    public void setRace(String race) {
         this.race = race;
     }
 
@@ -45,11 +44,11 @@ public class Character {
         this.features = features;
     }
 
-    public CharacterClass getCharacterClass() {
+    public String getCharacterClass() {
         return this.characterClass;
     }
 
-    public void setCharacterClass(CharacterClass characterClass) {
+    public void setCharacterClass(String characterClass) {
         this.characterClass = characterClass;
     }
 

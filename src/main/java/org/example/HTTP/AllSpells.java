@@ -2,9 +2,9 @@ package org.example.HTTP;
 
 import java.util.List;
 
-public class AllRacesResponse {
+public class AllSpells {
     private int count;
-    private List<AllRacesResult> results;
+    private List<AllSpellsResult> results;
 
     public int getCount() {
         return count;
@@ -14,12 +14,11 @@ public class AllRacesResponse {
         this.count = count;
     }
 
-    public List<AllRacesResult> getResults() {
+    public List<AllSpellsResult> getResults() {
         return results;
     }
 
-    public void setResults(List<AllRacesResult> results) {
+    public void setResults(List<AllSpellsResult> results) {
         this.results = results;
     }
-
 }

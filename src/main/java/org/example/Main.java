@@ -1,9 +1,8 @@
 package org.example;
 
-import org.example.HTTP.AllRacesResponse;
-import org.example.HTTP.AllRacesResult;
-import org.example.HTTP.RaceInformation;
+import org.example.HTTP.*;
 import org.example.MAPPERS.AllRacesMAPPER;
+import org.example.MAPPERS.AllSpellsMAPPER;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -14,9 +13,11 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        org.example.StandardClasses.Character character = new org.example.StandardClasses.Character();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please, give the name of your character");
         String name = scanner.nextLine();
+        character.setName(name);
 
         RaceInformation restInformation = new RaceInformation();
         String allRaces = null;
@@ -41,36 +42,51 @@ public class Main {
 
             if (response != null && response.statusCode() == 200) {
                 existingRace = true;
+                character.setRace(race);
             }
         } while (!existingRace);
 
-        /*String classes;
-        boolean existingClass = false;
+        ClassInformation classInformation = new ClassInformation();
+        boolean existingCLass = false;
         do {
-            System.out.println("Please, give the class of your character");
-            classes = scanner.nextLine();
+            System.out.println("Please, give valid class name of your character");
+            String className = scanner.nextLine().trim().toLowerCase();
 
-            if (response != null && response.trim().equals("OK")) {
-                existingClass = true;
+            HttpResponse response = classInformation.getClassInformation(className);
+            if (response != null && response.statusCode() == 200) {
+                existingCLass = true;
+                character.setCharacterClass(className);
             }
-        } while (!existingClass);
+        } while (!existingCLass);
 
-
-                .formatted(classes));
-        boolean spellsExist = responseSpells != null;
-        if (spellsExist) {
-            // TODO DEBUG INFO
-            System.out.println(responseSpells);
-            return;
+        ClassSpells classSpells = new ClassSpells();
+        String response12 = classSpells.getAllSpells();
+        AllSpells allSpells1 = new AllSpells();
+        allSpells1 = AllSpellsMAPPER.convertJSON(response12);
+        response12 = "";
+        for (AllSpellsResult result : allSpells1.getResults()) {
+            response12 = response12 + result.getName() + ", ";
         }
+        System.out.println("All spells are: " + response12);
 
-        String spell = "";
-        if (spellsExist) {
-            System.out.println("Please, select spells or/and cantrips of your character");
-            spell = scanner.nextLine();
-        }
-//TODO doesn't ask about background
-        System.out.println("Please write background for your character");
+        /*String spell;
+        boolean existingSpell = false;
+        do {
+            // TODO change to multiple spells
+            System.out.println("Please, select valid spell name of your character");
+            spell = scanner.nextLine().trim().toLowerCase();
+
+            HttpResponse response = restInformation.getRaceInformation(race);
+
+            String body = response.body().toString();
+
+            if (response != null && response.statusCode() == 200) {
+                existingRace = true;
+                character.setSpells(spell);
+            } */
+
+
+       /* System.out.println("Please write background for your character");
         String background = scanner.nextLine();
 
         File file = new File("src\\main\\java\\org\\example\\" + name + ".txt");

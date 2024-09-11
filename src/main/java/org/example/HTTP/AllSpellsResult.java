@@ -1,9 +1,13 @@
 package org.example.HTTP;
 
-public class AllRacesResult {
+public class AllSpellsResult {
+
     private String index;
     private String name;
     private String url;
+
+    private Integer level;
+
     public String getIndex() {
         return index;
     }
@@ -26,5 +30,13 @@ public class AllRacesResult {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public Integer getLevel() {
+        return level;
+    }
+
+    public void setLevel(Integer level) {
+        this.level = level;
     }
 }
