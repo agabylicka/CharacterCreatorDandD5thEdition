@@ -12,10 +12,10 @@ import java.util.List;
 public class RaceMAPPER {
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
-    public static Race convertJSON(String postJSON) {
+    public static Race convertJSON(String JSON) {
         try {
             Race race = new Race();
-            JsonNode node = MAPPER.readTree(postJSON);
+            JsonNode node = MAPPER.readTree(JSON);
             race.setSize((node.get("size").asText()));
             race.setSpeed((node.get("speed").asInt()));
             List<String> languages = new ArrayList<>();

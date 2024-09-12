@@ -36,9 +36,7 @@ public class ClassSpells {
 
             return resp;
 
-        } catch (URISyntaxException | InterruptedException | NullPointerException e) {
-            throw new RuntimeException(e);
-        } catch (ExecutionException e) {
+        } catch (URISyntaxException | InterruptedException | NullPointerException | ExecutionException e) {
             throw new RuntimeException(e);
         }
     }
