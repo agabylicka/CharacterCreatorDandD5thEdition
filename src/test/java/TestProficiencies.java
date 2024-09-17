@@ -1,4 +1,4 @@
-import org.example.HTTP.Proficiencies;
+import org.CharacterCreator.HTTP.Proficiencies;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

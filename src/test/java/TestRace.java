@@ -1,5 +1,5 @@
-import org.example.StandardClasses.Race;
-import org.example.MAPPERS.RaceMAPPER;
+import org.CharacterCreator.DataModel.Race;
+import org.CharacterCreator.MAPPERS.RaceMAPPER;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

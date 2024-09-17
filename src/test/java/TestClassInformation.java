@@ -1,4 +1,4 @@
-import org.example.HTTP.ClassInformation;
+import org.CharacterCreator.HTTP.ClassInformation;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

@@ -1,17 +1,17 @@
-import org.example.HTTP.ClassSpells;
+import org.CharacterCreator.HTTP.ClassSpells;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.net.http.HttpResponse;
 
 public class TestClassSpells {
-        @Test
-        public void testClassSpells() {
-            String index = "bard";
-            ClassSpells classSpells = new ClassSpells();
-            HttpResponse<String> actual = classSpells.getClassSpells(index);
-            Assertions.assertEquals(200, actual.statusCode());
-        }
+    @Test
+    public void testClassSpells() {
+        String index = "bard";
+        ClassSpells classSpells = new ClassSpells();
+        HttpResponse<String> actual = classSpells.getClassSpells(index);
+        Assertions.assertEquals(200, actual.statusCode());
+    }
 
     @Test
     public void testNullClassFeatures() {
@@ -19,6 +19,7 @@ public class TestClassSpells {
         ClassSpells classSpells = new ClassSpells();
         Assertions.assertThrows(RuntimeException.class, () -> classSpells.getClassSpells(index));
     }
+
     @Test
     public void testUnhappyClassFeatures() {
         String index = "";
@@ -27,6 +28,7 @@ public class TestClassSpells {
         HttpResponse<String> actual = classSpells.getClassSpells(index);
         Assertions.assertEquals(404, actual.statusCode());
     }
+
     @Test
     public void testNotExistingClassEqualsZeroResult() {
         String index = "Non_existing";
