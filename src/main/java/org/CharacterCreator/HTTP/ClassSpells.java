@@ -10,7 +10,7 @@ import java.util.concurrent.ExecutionException;
 
 public class ClassSpells {
     //private final String address = "https://www.dnd5eapi.co/api/classes/:index/levels/1/spells";
-    private final String addressClass = "https://www.dnd5eapi.co/api/classes/:index/spellcasting";
+    private final String addressClass = "https://www.dnd5eapi.co/api/classes/:index/levels/1/spells";
     private final HttpClient client = HttpClient.newHttpClient();
 
     public HttpResponse<String> getClassSpells(String index) {
