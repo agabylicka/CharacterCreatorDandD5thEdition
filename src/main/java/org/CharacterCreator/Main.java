@@ -2,8 +2,6 @@ package org.CharacterCreator;
 
 import org.CharacterCreator.DataModel.Spells;
 import org.CharacterCreator.HTTP.*;
-import org.CharacterCreator.MAPPERS.AllRacesMAPPER;
-import org.CharacterCreator.MAPPERS.SpellsByClassMAPPER;
 import org.CharacterCreator.MAPPERS.SpellsMAPPER;
 
 import java.io.BufferedWriter;
@@ -11,6 +9,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.http.HttpResponse;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -76,38 +75,34 @@ public class Main {
 //TODO finish spells
         ClassSpells classSpells = new ClassSpells();
         HttpResponse<String> response12 = classSpells.getClassSpells(className);
-        //SpellsByClassMAPPER spellsByClassMAPPER = new SpellsByClassMAPPER();
-        SpellsMAPPER spellsMAPPER = new SpellsMAPPER();
-        Spells spells = SpellsMAPPER.convertJSON(response12.body());
-        String response13 = "";
-        //for (Spellcasting_ability result : spellsByClass.getSpellcasting_ability()) {
-           // response13 = response13 + result.getName() + ", ";
-        //} */
-        //}
-        //System.out.println("All spells are: " + response13);
-        //System.out.println("All spells are: " + spells);
+        List<AllSpellsResult> spells = SpellsMAPPER.convertJSONToListOfSpells(response12.body());
+        String allSpellsNames = "";
+        for (var spell : spells) {
+            allSpellsNames += spell.getName() + ", ";
+        }
+        System.out.println("Available spells for this class are: " + allSpellsNames);
 
-        /*String spell;
-        boolean existingSpell = false;
+        boolean foundSpell;
+        String selection = null;
         do {
-            // TODO change to multiple spells
-            System.out.println("Please, select valid spell name of your character");
-            spell = scanner.nextLine().trim().toLowerCase();
+            System.out.println("Which spell do You choose?");
+            selection = scanner.nextLine();
+            foundSpell = allSpellsNames.contains(selection.trim());
+        } while (!foundSpell);
 
-            HttpResponse response = restInformation.getRaceInformation(race);
-
-            String body = response.body().toString();
-
-            if (response != null && response.statusCode() == 200) {
-                existingRace = true;
-                character.setSpells(spell);
-            } */
-
+        for (AllSpellsResult spell : spells) {
+            if (spell.getName().equals(selection)) {
+                Spells named = new Spells();
+                named.setName(spell.getName());
+                character.setSpells(List.of(named));
+                break;
+            }
+        }
 
         System.out.println("Please write background for your character");
         String background = scanner.nextLine();
-//TODO check the filepath!
-        File file = new File("src\\main\\java\\org\\example\\" + name + ".txt");
+        // C:\Users\kwazi\Documents\NetBeansProjects\CharacterCreatorDandD5thEdition\src\main\java\org\CharacterCreator
+        File file = new File("src\\main\\java\\org\\CharacterCreator\\" + name + ".txt");
         try {
             boolean created = file.createNewFile();
         } catch (IOException e) {
@@ -116,13 +111,13 @@ public class Main {
 
         try (FileWriter writer = new FileWriter(file); BufferedWriter bufferedWriter = new BufferedWriter(writer)) {
             bufferedWriter.flush();
-
-            bufferedWriter.write("race: " + race);
+            bufferedWriter.write("name: " + character.getName());
+            bufferedWriter.newLine();
+            bufferedWriter.write("race: " + character.getRace());
             bufferedWriter.write("\n");
-            bufferedWriter.write("class: " + className);
+            bufferedWriter.write("class: " + character.getCharacterClass());
             bufferedWriter.write(("\n"));
-            //TODO user is able to select spells if available (can be done via a list and number of the spell);
-            //bufferedWriter.write("spells or/and cantrips: " + spell);
+            bufferedWriter.write("spells or/and cantrips: " + selection);
             bufferedWriter.write(("\n"));
             bufferedWriter.write("background: " + background);
             bufferedWriter.write(("\n"));

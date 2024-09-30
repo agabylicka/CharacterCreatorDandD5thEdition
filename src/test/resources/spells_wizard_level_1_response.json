@@ -1,0 +1,140 @@
+{
+  "count": 27,
+  "results": [
+    {
+      "index": "alarm",
+      "name": "Alarm",
+      "url": "/api/spells/alarm"
+    },
+    {
+      "index": "burning-hands",
+      "name": "Burning Hands",
+      "url": "/api/spells/burning-hands"
+    },
+    {
+      "index": "charm-person",
+      "name": "Charm Person",
+      "url": "/api/spells/charm-person"
+    },
+    {
+      "index": "color-spray",
+      "name": "Color Spray",
+      "url": "/api/spells/color-spray"
+    },
+    {
+      "index": "comprehend-languages",
+      "name": "Comprehend Languages",
+      "url": "/api/spells/comprehend-languages"
+    },
+    {
+      "index": "detect-magic",
+      "name": "Detect Magic",
+      "url": "/api/spells/detect-magic"
+    },
+    {
+      "index": "disguise-self",
+      "name": "Disguise Self",
+      "url": "/api/spells/disguise-self"
+    },
+    {
+      "index": "expeditious-retreat",
+      "name": "Expeditious Retreat",
+      "url": "/api/spells/expeditious-retreat"
+    },
+    {
+      "index": "false-life",
+      "name": "False Life",
+      "url": "/api/spells/false-life"
+    },
+    {
+      "index": "feather-fall",
+      "name": "Feather Fall",
+      "url": "/api/spells/feather-fall"
+    },
+    {
+      "index": "find-familiar",
+      "name": "Find Familiar",
+      "url": "/api/spells/find-familiar"
+    },
+    {
+      "index": "floating-disk",
+      "name": "Floating Disk",
+      "url": "/api/spells/floating-disk"
+    },
+    {
+      "index": "fog-cloud",
+      "name": "Fog Cloud",
+      "url": "/api/spells/fog-cloud"
+    },
+    {
+      "index": "grease",
+      "name": "Grease",
+      "url": "/api/spells/grease"
+    },
+    {
+      "index": "hideous-laughter",
+      "name": "Hideous Laughter",
+      "url": "/api/spells/hideous-laughter"
+    },
+    {
+      "index": "identify",
+      "name": "Identify",
+      "url": "/api/spells/identify"
+    },
+    {
+      "index": "illusory-script",
+      "name": "Illusory Script",
+      "url": "/api/spells/illusory-script"
+    },
+    {
+      "index": "jump",
+      "name": "Jump",
+      "url": "/api/spells/jump"
+    },
+    {
+      "index": "longstrider",
+      "name": "Longstrider",
+      "url": "/api/spells/longstrider"
+    },
+    {
+      "index": "mage-armor",
+      "name": "Mage Armor",
+      "url": "/api/spells/mage-armor"
+    },
+    {
+      "index": "magic-missile",
+      "name": "Magic Missile",
+      "url": "/api/spells/magic-missile"
+    },
+    {
+      "index": "protection-from-evil-and-good",
+      "name": "Protection from Evil and Good",
+      "url": "/api/spells/protection-from-evil-and-good"
+    },
+    {
+      "index": "shield",
+      "name": "Shield",
+      "url": "/api/spells/shield"
+    },
+    {
+      "index": "silent-image",
+      "name": "Silent Image",
+      "url": "/api/spells/silent-image"
+    },
+    {
+      "index": "sleep",
+      "name": "Sleep",
+      "url": "/api/spells/sleep"
+    },
+    {
+      "index": "thunderwave",
+      "name": "Thunderwave",
+      "url": "/api/spells/thunderwave"
+    },
+    {
+      "index": "unseen-servant",
+      "name": "Unseen Servant",
+      "url": "/api/spells/unseen-servant"
+    }
+  ]
+}
