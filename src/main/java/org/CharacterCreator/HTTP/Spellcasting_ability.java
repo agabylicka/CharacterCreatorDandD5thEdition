@@ -1,6 +1,5 @@
 package org.CharacterCreator.HTTP;
 
-import java.util.List;
 
 public class Spellcasting_ability {
     private String index;

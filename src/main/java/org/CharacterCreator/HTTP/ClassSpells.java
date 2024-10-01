@@ -6,10 +6,8 @@ import java.net.URISyntaxException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.concurrent.ExecutionException;
 
 public class ClassSpells {
-    //private final String address = "https://www.dnd5eapi.co/api/classes/:index/levels/1/spells";
     private final String addressClass = "https://www.dnd5eapi.co/api/classes/:index/levels/1/spells";
     private final HttpClient client = HttpClient.newHttpClient();
 

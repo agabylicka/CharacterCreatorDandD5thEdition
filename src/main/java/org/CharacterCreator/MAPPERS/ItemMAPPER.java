@@ -16,7 +16,6 @@ public class ItemMAPPER {
             item.setQuantity(node.get("quantity").asInt());
             return item;
         } catch (JsonProcessingException e) {
-            //throw new RuntimeException(e);
             System.err.println(e.getMessage());
         }
         return null;

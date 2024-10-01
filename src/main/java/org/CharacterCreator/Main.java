@@ -22,28 +22,12 @@ public class Main {
 
         System.out.println("All races are: dragonborn, dwarf, elf, gnome, half-elf, half-orc, halfling, human, tiefling");
 
-
-
-       /* RaceInformation restInformation = new RaceInformation();
-        String allRaces = null;
-        String response1 = restInformation.getAllRaces();
-        AllRacesResponse allRacesResponse = new AllRacesResponse();
-        allRacesResponse = AllRacesMAPPER.convertJSON(response1);
-        response1 = "";
-        for (AllRacesResult result : allRacesResponse.getResults()) {
-            response1 = response1 + result.getName() + ", ";
-        }
-        System.out.println("All races are: " + response1); */
-
         String race;
         boolean existingRace = false;
         do {
             System.out.println("Please, give valid race name of your character");
             race = scanner.nextLine().trim().toLowerCase();
 
-            //HttpResponse response = restInformation.getRaceInformation(race);
-
-            //String body = response.body().toString();
 
             if (race.equals("dragonborn") || race.equals("dwarf") || race.equals("elf") || race.equals("gnome")
                     || race.equals("half-elf") || race.equals("half-orc") || race.equals("halfling")
@@ -53,7 +37,6 @@ public class Main {
             }
         } while (!existingRace);
 
-        //ClassInformation classInformation = new ClassInformation();
         boolean existingCLass = false;
         String className;
 
@@ -62,7 +45,6 @@ public class Main {
             System.out.println("Please, give valid class name of your character");
             className = scanner.nextLine().trim().toLowerCase();
 
-            //HttpResponse response = classInformation.getClassInformation(className);
             if (className.equals("barbarian") || className.equals("bard") || className.equals("cleric")
                     || className.equals("druid") || className.equals("fighter") || className.equals("monk")
                     || className.equals("paladin") || className.equals("ranger") || className.equals("rogue")
@@ -72,7 +54,6 @@ public class Main {
             }
         } while (!existingCLass);
 
-//TODO finish spells
         ClassSpells classSpells = new ClassSpells();
         HttpResponse<String> response12 = classSpells.getClassSpells(className);
         List<AllSpellsResult> spells = SpellsMAPPER.convertJSONToListOfSpells(response12.body());
@@ -101,7 +82,6 @@ public class Main {
 
         System.out.println("Please write background for your character");
         String background = scanner.nextLine();
-        // C:\Users\kwazi\Documents\NetBeansProjects\CharacterCreatorDandD5thEdition\src\main\java\org\CharacterCreator
         File file = new File("src\\main\\java\\org\\CharacterCreator\\" + name + ".txt");
         try {
             boolean created = file.createNewFile();
