@@ -1,11 +1,14 @@
-package org.example;
+package org.CharacterCreator.HTTP;
 
-public class Language {
+public class AllSpellsResult {
+
     private String index;
     private String name;
     private String url;
+
+
     public String getIndex() {
-        return this.index;
+        return index;
     }
 
     public void setIndex(String index) {
@@ -13,7 +16,7 @@ public class Language {
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 
     public void setName(String name) {
@@ -21,10 +24,11 @@ public class Language {
     }
 
     public String getUrl() {
-        return this.url;
+        return url;
     }
 
     public void setUrl(String url) {
         this.url = url;
     }
+
 }

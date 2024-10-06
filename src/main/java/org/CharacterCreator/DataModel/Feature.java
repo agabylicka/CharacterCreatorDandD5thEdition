@@ -1,4 +1,4 @@
-package org.example;
+package org.CharacterCreator.DataModel;
 
 
 public class Feature {
