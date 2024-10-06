@@ -1,6 +1,5 @@
-package org.CharacterCreator.MAPPERS;
-
 import org.CharacterCreator.DataModel.Spells;
+import org.CharacterCreator.MAPPERS.SpellsMAPPER;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -25,7 +24,7 @@ class SpellsMAPPERTest {
 
     }
 
-    String readFile(String fileName) {
+    private String readFile(String fileName) {
         StringBuilder result = new StringBuilder();
         BufferedReader reader = null;
 
