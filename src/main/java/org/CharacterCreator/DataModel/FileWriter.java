@@ -37,4 +37,14 @@ public class FileWriter {
         }
         return null;
     }
+
+    public boolean removeFile(String name) {
+         File file = null;
+         try { file = new File("src\\main\\java\\org\\CharacterCreator\\" + name + ".txt");
+            file.delete();
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
+     }
 }
