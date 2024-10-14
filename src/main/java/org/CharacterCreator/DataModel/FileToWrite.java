@@ -24,16 +24,17 @@ public class FileToWrite {
         } catch (IOException ioException) {
             ioException.printStackTrace();
         }
-        return null;
+        return "OK";
     }
 
     public boolean removeFile(String name) {
          File file = null;
+         boolean result = false;
          try { file = new File("src\\main\\java\\org\\CharacterCreator\\" + name + ".txt");
-            file.delete();
+            result = file.delete();
         } catch (Exception e) {
             return false;
         }
-        return true;
+        return result;
      }
 }

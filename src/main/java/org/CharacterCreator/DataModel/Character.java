@@ -4,10 +4,10 @@ import java.util.List;
 
 public class Character {
     private String name;
-    private String race;
+    private Race race;
     private String backstory;
     private List<Feature> features;
-    private String characterClass;
+    private CharacterClass characterClass;
     private List<Spells> spells;
     private List<String> languages;
     private List<String> proficiencies;
@@ -20,11 +20,11 @@ public class Character {
         this.name = name;
     }
 
-    public String getRace() {
+    public Race getRace() {
         return this.race;
     }
 
-    public void setRace(String race) {
+    public void setRace(Race race) {
         this.race = race;
     }
 
@@ -44,11 +44,11 @@ public class Character {
         this.features = features;
     }
 
-    public String getCharacterClass() {
+    public CharacterClass getCharacterClass() {
         return this.characterClass;
     }
 
-    public void setCharacterClass(String characterClass) {
+    public void setCharacterClass(CharacterClass characterClass) {
         this.characterClass = characterClass;
     }
 

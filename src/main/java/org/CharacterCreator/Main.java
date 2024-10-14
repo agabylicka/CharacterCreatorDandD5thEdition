@@ -1,9 +1,12 @@
 package org.CharacterCreator;
 
+import org.CharacterCreator.DataModel.CharacterClass;
 import org.CharacterCreator.DataModel.FileToWrite;
+import org.CharacterCreator.DataModel.Race;
 import org.CharacterCreator.DataModel.Spells;
-import org.CharacterCreator.HTTP.AllSpellsResult;
+import org.CharacterCreator.HTTP.ClassInformation;
 import org.CharacterCreator.HTTP.ClassSpells;
+import org.CharacterCreator.HTTP.RaceInformation;
 import org.CharacterCreator.MAPPERS.SpellsMAPPER;
 
 import java.net.http.HttpResponse;
@@ -38,10 +41,12 @@ public class Main {
             System.out.println("Please, give valid race name of your character");
             race = scanner.nextLine().trim().toLowerCase();
 
-
             if (raceRespond.contains(race)) {
+                RaceInformation raceInformation = new RaceInformation();
+                Race race1 = null;
+                race1 = raceInformation.getRaceInformation(race);
                 existingRace = true;
-                character.setRace(race);
+                character.setRace(race1);
             }
         } while (!existingRace);
 
@@ -66,16 +71,19 @@ public class Main {
             System.out.println("Please, give valid class name of your character");
             className = scanner.nextLine().trim().toLowerCase();
             if (classRespond.contains(className)) {
+                ClassInformation classInformation = new ClassInformation();
+                CharacterClass character1 = null;
+                character1 = classInformation.getClassInformation(className);
                 existingCLass = true;
-                character.setCharacterClass(className);
+                character.setCharacterClass(character1);
             }
         } while (!existingCLass);
 
         ClassSpells classSpells = new ClassSpells();
         HttpResponse<String> response12 = classSpells.getClassSpells(className);
-        List<AllSpellsResult> spells = SpellsMAPPER.convertJSONToListOfSpells(response12.body());
+        List<org.CharacterCreator.DataModel.Spells> spells = SpellsMAPPER.convertJSONToListOfSpells(response12.body());
         String allSpellsNames = "";
-        for (var spell : spells) {
+        for (Spells spell : spells) {
             allSpellsNames += spell.getName() + ", ";
         }
         System.out.println("Available spells for this class are: " + allSpellsNames);
@@ -88,9 +96,9 @@ public class Main {
             foundSpell = allSpellsNames.contains(selection.trim());
         } while (!foundSpell);
 
-        for (AllSpellsResult spell : spells) {
+        for (Spells spell : spells) {
             if (spell.getName().equals(selection)) {
-                Spells named = new Spells();
+                org.CharacterCreator.DataModel.Spells named = new org.CharacterCreator.DataModel.Spells();
                 named.setName(spell.getName());
                 character.setSpells(List.of(named));
                 break;

@@ -1,3 +1,4 @@
+import org.CharacterCreator.DataModel.Race;
 import org.CharacterCreator.HTTP.RaceInformation;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -63,8 +64,8 @@ public class TestRaceInformation {
     public void testRaceInformation() {
         String index = "gnome";
         RaceInformation raceInformation = new RaceInformation();
-        HttpResponse<String> actual = raceInformation.getRaceInformation(index);
-        Assertions.assertEquals(200, actual.statusCode());
+        Race actual = raceInformation.getRaceInformation(index);
+        Assertions.assertNotNull(actual);
     }
 
     @Test
@@ -79,18 +80,14 @@ public class TestRaceInformation {
         String index = "";
         RaceInformation raceInformation = new RaceInformation();
 
-        HttpResponse<String> actual = raceInformation.getRaceInformation(index);
-        Assertions.assertEquals(200, actual.statusCode());
+        Race actual = raceInformation.getRaceInformation(index);
+        Assertions.assertNotNull(actual);
     }
 
     @Test
     public void testNotExistingClassEqualsZeroResult() {
         String index = "Non_existing";
         RaceInformation raceInformation = new RaceInformation();
-        String expected = "{\"error\":\"Not found\"}";
-
-        HttpResponse<String> actual = raceInformation.getRaceInformation(index);
-        Assertions.assertEquals(404, actual.statusCode());
-        Assertions.assertEquals(expected, actual.body());
+        Assertions.assertThrows(RuntimeException.class, () -> raceInformation.getRaceInformation(index), "JSON is wrong.");
     }
 }

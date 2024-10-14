@@ -1,5 +1,8 @@
 package org.CharacterCreator.HTTP;
 
+import org.CharacterCreator.DataModel.CharacterClass;
+import org.CharacterCreator.MAPPERS.CharacterClassMAPPER;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -11,12 +14,16 @@ public class ClassInformation {
     private final String address = "https://www.dnd5eapi.co/api/classes";
     private final HttpClient client = HttpClient.newHttpClient();
 
-    public HttpResponse<String> getClassInformation(String index) {
+    public CharacterClass getClassInformation(String index) {
         HttpRequest request;
+        if (index == null || index.trim().isEmpty()) {
+            return null;
+        }
         try {
             request = HttpRequest.newBuilder(new URI(address + "/" + index)).GET().build();
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            return response;
+            CharacterClass characterClass = CharacterClassMAPPER.convertJSON(response.body());
+            return characterClass;
         } catch (URISyntaxException | InterruptedException | IOException | NullPointerException e) {
             throw new RuntimeException(e);
         }
