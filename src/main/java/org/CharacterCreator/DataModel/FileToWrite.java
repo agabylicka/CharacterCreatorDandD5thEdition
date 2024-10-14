@@ -2,38 +2,27 @@ package org.CharacterCreator.DataModel;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 
-public class FileWriter {
-     public String writeFile(String name, org.CharacterCreator.DataModel.Character character, String selection, String background) {
+public class FileToWrite {
+     public String writeFile(String name, Character character, String selection, String background) {
         File file = new File("src\\main\\java\\org\\CharacterCreator\\" + name + ".txt");
-
-         java.io.FileWriter writer = null;
-         BufferedWriter bufferedWriter = null;
-        try {
-            writer = new java.io.FileWriter(file); bufferedWriter = new BufferedWriter(writer);
-            bufferedWriter.flush();
+        try (FileWriter writer = new FileWriter(file); BufferedWriter bufferedWriter = new BufferedWriter(writer)) {
             bufferedWriter.write("Name: " + character.getName());
             bufferedWriter.newLine();
             bufferedWriter.write("Race: " + character.getRace());
-            bufferedWriter.write("\n");
+            bufferedWriter.newLine();
             bufferedWriter.write("Class: " + character.getCharacterClass());
-            bufferedWriter.write(("\n"));
+            bufferedWriter.newLine();
             bufferedWriter.write("Spells or/and cantrips: " + selection);
-            bufferedWriter.write(("\n"));
+            bufferedWriter.newLine();
             bufferedWriter.write("Background: " + background);
-            bufferedWriter.write(("\n"));
+            bufferedWriter.newLine();
             bufferedWriter.write("You are on level 1.");
-            bufferedWriter.write(("\n"));
+            bufferedWriter.newLine();
         } catch (IOException ioException) {
             ioException.printStackTrace();
-        } finally {
-            try {
-                bufferedWriter.close();
-                writer.close();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
         }
         return null;
     }

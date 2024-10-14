@@ -86,35 +86,22 @@ class SpellsMAPPERTest {
         // then
         Assertions.assertNotNull(actual);
         Assertions.assertFalse(actual.getName().isEmpty());
-
     }
 
-    public String readFile(String fileName) {
+    private String readFile(String fileName) {
         StringBuilder result = new StringBuilder();
-        BufferedReader reader = null;
+        ClassLoader classLoader = getClass().getClassLoader();
+        File file = new File(classLoader.getResource(fileName).getFile());
 
-        try {
-            ClassLoader classLoader = getClass().getClassLoader();
-            File file = new File(classLoader.getResource(fileName).getFile());
-
-            FileReader fileReader = new FileReader(file);
-            reader = new BufferedReader(fileReader);
+        try (FileReader fileReader = new FileReader(file);
+             BufferedReader reader = new BufferedReader(fileReader)) {
             String line = "";
-
             while (line != null) {
                 line = reader.readLine();
                 result.append(line);
             }
         } catch (java.io.IOException ioException) {
             ioException.printStackTrace();
-        } finally {
-            if (reader != null) {
-                try {
-                    reader.close();
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            }
         }
         return result.toString();
     }

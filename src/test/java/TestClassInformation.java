@@ -32,7 +32,7 @@ public class TestClassInformation {
         String index = null;
         ClassInformation classInformation = new ClassInformation();
         // when
-        var actual = classInformation.getClassInformation(index);
+        HttpResponse<String> actual = classInformation.getClassInformation(index);
         // then
         Assertions.assertNotNull(actual);
         Assertions.assertEquals(404, actual.statusCode());

@@ -1,6 +1,6 @@
 package org.CharacterCreator;
 
-import org.CharacterCreator.DataModel.FileWriter;
+import org.CharacterCreator.DataModel.FileToWrite;
 import org.CharacterCreator.DataModel.Spells;
 import org.CharacterCreator.HTTP.AllSpellsResult;
 import org.CharacterCreator.HTTP.ClassSpells;
@@ -48,7 +48,7 @@ public class Main {
         boolean existingCLass = false;
         String className;
 
-        System.out.println("All races are: barbarian, bard, cleric, druid, fighter, monk, paladin, ranger, rogue, sorcerer, warlock, wizard");
+        System.out.println("All classes are: barbarian, bard, cleric, druid, fighter, monk, paladin, ranger, rogue, sorcerer, warlock, wizard");
         ArrayList<String> classRespond = new ArrayList<>();
         classRespond.add("barbarian");
         classRespond.add("bard");
@@ -100,15 +100,7 @@ public class Main {
         System.out.println("Please write background for your character");
         String background = scanner.nextLine();
 
-        FileWriter fileWriter = new FileWriter();
-        fileWriter.writeFile(name, character, selection, background);
+        FileToWrite fileToWrite = new FileToWrite();
+        fileToWrite.writeFile(name, character, selection, background);
     }
 }
-
-
-
-
-
-
-
-
