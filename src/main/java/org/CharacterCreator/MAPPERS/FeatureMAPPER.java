@@ -1,8 +1,9 @@
-package org.example;
+package org.CharacterCreator.MAPPERS;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.CharacterCreator.DataModel.Feature;
 
 public class FeatureMAPPER {
     private static final ObjectMapper MAPPER = new ObjectMapper();

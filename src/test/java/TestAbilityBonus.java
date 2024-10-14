@@ -1,5 +1,5 @@
-import org.example.AbilityBonus;
-import org.example.AbilityBonusMAPPER;
+import org.CharacterCreator.DataModel.AbilityBonus;
+import org.CharacterCreator.MAPPERS.AbilityBonusMAPPER;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

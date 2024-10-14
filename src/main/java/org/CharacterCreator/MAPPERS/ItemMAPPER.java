@@ -1,18 +1,20 @@
-package org.example;
+package org.CharacterCreator.MAPPERS;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.CharacterCreator.DataModel.Item;
 
-public class SpellsMAPPER {
+public class ItemMAPPER {
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
-    public static Spells convertJSON(String JSON) {
+    public static Item convertJSON(String JSON) {
         try {
-            Spells spells = new Spells();
+            Item item = new Item();
             JsonNode node = MAPPER.readTree(JSON);
-            spells.setName((node.get("name").asText()));
-            return spells;
+            item.setName((node.get("name").asText()));
+            item.setQuantity(node.get("quantity").asInt());
+            return item;
         } catch (JsonProcessingException e) {
             System.err.println(e.getMessage());
         }

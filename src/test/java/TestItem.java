@@ -1,5 +1,5 @@
-import org.example.Item;
-import org.example.ItemMAPPER;
+import org.CharacterCreator.DataModel.Item;
+import org.CharacterCreator.MAPPERS.ItemMAPPER;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

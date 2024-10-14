@@ -1,5 +1,5 @@
-import org.example.Feature;
-import org.example.FeatureMAPPER;
+import org.CharacterCreator.DataModel.Feature;
+import org.CharacterCreator.MAPPERS.FeatureMAPPER;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

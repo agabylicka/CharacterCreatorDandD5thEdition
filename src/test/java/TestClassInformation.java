@@ -1,8 +1,8 @@
-import org.example.ClassInformation;
+import org.CharacterCreator.DataModel.CharacterClass;
+import org.CharacterCreator.HTTP.ClassInformation;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.net.http.HttpResponse;
 
 public class TestClassInformation {
     @Test
@@ -12,34 +12,33 @@ public class TestClassInformation {
         String index = "wizard";
         ClassInformation classInformation = new ClassInformation();
         //when
-        HttpResponse<String> actual = classInformation.getClassInformation(index);
+        CharacterClass actual = classInformation.getClassInformation(index);
         //then
-        Assertions.assertEquals(200, actual.statusCode());
+        Assertions.assertNotNull(actual);
     }
 
     @Test
     public void testReadAllClassesInformation() {
         String index = "";
         ClassInformation classInformation = new ClassInformation();
-
-        HttpResponse<String> actual = classInformation.getClassInformation(index);
-        Assertions.assertEquals(200, actual.statusCode());
+        CharacterClass actual = classInformation.getClassInformation(index);
+        Assertions.assertNull(actual);
     }
 
     @Test
     public void testNullClassInformation() {
+        // given
         String index = null;
         ClassInformation classInformation = new ClassInformation();
-        Assertions.assertThrows(RuntimeException.class, () -> classInformation.getClassInformation(index));
+        // when
+        CharacterClass actual = classInformation.getClassInformation(index);
+        // then
+        Assertions.assertNull(actual);
     }
     @Test
     public void testNotExistingClass() {
         String index = "Non_existing";
         ClassInformation classInformation = new ClassInformation();
-        String expected = "{\"error\":\"Not found\"}";
-
-        HttpResponse<String> actual = classInformation.getClassInformation(index);
-        Assertions.assertEquals(404, actual.statusCode());
-        Assertions.assertEquals(expected, actual.body());
+        Assertions.assertThrows(RuntimeException.class, () -> classInformation.getClassInformation(index), "JSON is wrong.");
     }
 }
