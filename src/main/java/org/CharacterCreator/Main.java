@@ -81,7 +81,7 @@ public class Main {
 
         ClassSpells classSpells = new ClassSpells();
         HttpResponse<String> response12 = classSpells.getClassSpells(className);
-        List<org.CharacterCreator.DataModel.Spells> spells = SpellsMAPPER.convertJSONToListOfSpells(response12.body());
+        List<Spells> spells = SpellsMAPPER.convertJSONToListOfSpells(response12.body());
         String allSpellsNames = "";
         for (Spells spell : spells) {
             allSpellsNames += spell.getName() + ", ";
@@ -98,7 +98,7 @@ public class Main {
 
         for (Spells spell : spells) {
             if (spell.getName().equals(selection)) {
-                org.CharacterCreator.DataModel.Spells named = new org.CharacterCreator.DataModel.Spells();
+                Spells named = new Spells();
                 named.setName(spell.getName());
                 character.setSpells(List.of(named));
                 break;
