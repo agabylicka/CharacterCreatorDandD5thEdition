@@ -6,14 +6,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class FileToWrite {
-     public String writeFile(String name, Character character, String selection, String background) {
+     public String writeFile(String name, String selection, String background, String className, String race) {
         File file = new File("src\\main\\java\\org\\CharacterCreator\\" + name + ".txt");
         try (FileWriter writer = new FileWriter(file); BufferedWriter bufferedWriter = new BufferedWriter(writer)) {
-            bufferedWriter.write("Name: " + character.getName());
+            bufferedWriter.write("Name: " + name);
             bufferedWriter.newLine();
-            bufferedWriter.write("Race: " + character.getRace());
+            bufferedWriter.write("Race: " + race);
             bufferedWriter.newLine();
-            bufferedWriter.write("Class: " + character.getCharacterClass());
+            bufferedWriter.write("Class: " + className);
             bufferedWriter.newLine();
             bufferedWriter.write("Spells or/and cantrips: " + selection);
             bufferedWriter.newLine();

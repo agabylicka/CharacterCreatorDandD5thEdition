@@ -6,6 +6,18 @@ public class Race {
 
     private List<AbilityBonus> bonuses;
     private int speed;
+
+    @Override
+    public String toString() {
+        return "Race{" +
+                "bonuses=" + bonuses +
+                ", speed=" + speed +
+                ", size='" + size + '\'' +
+                ", languages=" + languages +
+                ", proficiencies=" + proficiencies +
+                '}';
+    }
+
     private String size;
 
     private List<String> languages;

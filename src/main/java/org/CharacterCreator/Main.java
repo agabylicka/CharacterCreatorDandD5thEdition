@@ -109,6 +109,6 @@ public class Main {
         String background = scanner.nextLine();
 
         FileToWrite fileToWrite = new FileToWrite();
-        fileToWrite.writeFile(name, character, selection, background);
+        fileToWrite.writeFile(name, selection, background, className, race);
     }
 }

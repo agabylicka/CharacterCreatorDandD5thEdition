@@ -10,16 +10,19 @@ public class TestFileToWrite {
     @Test
     void testWriteFile() {
         // given
-        String uuid = UUID.randomUUID().toString();
+        String name = "Sara";
         String selection = "Alarm";
         String background = "Lorem ipsum";
-        Character character = new Character();
-        File file = new File("src\\main\\java\\org\\CharacterCreator\\" + uuid + ".txt");
+        String className = "wizard";
+        String race = "elf";
+        //Character character = new Character();
+        File file = new File("src\\main\\java\\org\\CharacterCreator\\" + name + ".txt");
         // when
         FileToWrite fileToWrite = new FileToWrite();
-        String actual = fileToWrite.writeFile(uuid, character, selection, background);
+        //                          writeFile(name, selection, background, className, race) {
+        String actual = fileToWrite.writeFile(name, selection, background, className, race);
         // then
-        fileToWrite.removeFile(uuid);
-        Assertions.assertNull(actual);
+        fileToWrite.removeFile(name);
+        Assertions.assertNotNull(actual);
     }
 }

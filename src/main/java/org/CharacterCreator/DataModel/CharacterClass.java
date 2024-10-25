@@ -30,4 +30,13 @@ public class CharacterClass {
     public void setStartingEquipment(List<Item> startingEquipment) {
         this.startingEquipment = startingEquipment;
     }
+
+    @Override
+    public String toString() {
+        return "CharacterClass{" +
+                "availableSkills=" + availableSkills +
+                ", proficiencies=" + proficiencies +
+                ", startingEquipment=" + startingEquipment +
+                '}';
+    }
 }
