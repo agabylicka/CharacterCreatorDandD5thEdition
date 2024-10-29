@@ -1,4 +1,4 @@
-package org.example;
+package org.CharacterCreator.DataModel;
 
 import java.util.List;
 
@@ -29,5 +29,14 @@ public class CharacterClass {
 
     public void setStartingEquipment(List<Item> startingEquipment) {
         this.startingEquipment = startingEquipment;
+    }
+
+    @Override
+    public String toString() {
+        return "CharacterClass{" +
+                "availableSkills=" + availableSkills +
+                ", proficiencies=" + proficiencies +
+                ", startingEquipment=" + startingEquipment +
+                '}';
     }
 }

@@ -1,8 +1,9 @@
-package org.example;
+package org.CharacterCreator.DataModel;
 
 import java.util.List;
 
 public class Character {
+    private String name;
     private Race race;
     private String backstory;
     private List<Feature> features;
@@ -18,8 +19,6 @@ public class Character {
     public void setName(String name) {
         this.name = name;
     }
-
-    private String name;
 
     public Race getRace() {
         return this.race;

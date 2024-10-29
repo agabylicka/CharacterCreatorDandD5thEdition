@@ -1,4 +1,6 @@
-import org.example.*;
+import org.CharacterCreator.MAPPERS.CharacterClassMAPPER;
+import org.CharacterCreator.DataModel.CharacterClass;
+import org.CharacterCreator.DataModel.Item;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
